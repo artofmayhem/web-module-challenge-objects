@@ -13,9 +13,16 @@ The function should:
   2. Create and return an object using the received values  
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
+function createMenuItem(passedName, passedPrice, passedCategory){
+    let newItem = {};
+     newItem.name = passedName;
+     newItem.price = passedPrice;
+     newItem.category = passedCategory;
+     console.log(`This ${newItem.name} costs $${newItem.price} and is served for ${newItem.category}`);
 }
+
+
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Test your createMenuItems function by doing the following:
@@ -26,7 +33,9 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
 
-
+createMenuItem('Pepperoni Pizza', 5 , 'lunch');
+createMenuItem('Cheeseburger', 10 , 'lunch');
+createMenuItem('Croissant' , 4 , 'Breakfast');
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to the 
@@ -41,12 +50,28 @@ Using the burger object below do the following:
   For example: burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2
 */
 
-export const burger = {
-  name: "Burger", 
-  price: 18, 
-  category: "Lunch", 
-  /*Your code here*/
+  const burger = 
+{
+     name: "Burger", 
+     price: 18, 
+     category: "Lunch", 
+     discount: function(discountType) 
+  {
+        let discountPrice = burger.price;
+
+      if (discountType.toLowerCase() == 'public') 
+      {
+        console.log(discountPrice * 0.90);
+      } 
+      else 
+      {
+        console.log(discountPrice * 0.75);
+      }
+  }
+    
 }
+   burger.discount('teacher')
+
 
 
 
@@ -66,8 +91,7 @@ const reviews = [
 Using the reviews array above:
   1. log only Julius' feedback to the console
 */
-
-
+console.log(reviews[5].feedback)
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
