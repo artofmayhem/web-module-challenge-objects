@@ -245,7 +245,8 @@ function foo(){
   return 'bar';
 }
 
-export default{
+//export 
+default{
   foo,
   createMenuItem,
   getReviewByIndex,
