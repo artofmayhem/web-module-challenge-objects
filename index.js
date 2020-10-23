@@ -5,7 +5,7 @@
 ///////////////Menu Items (MVP)///////////////////
 const latte = {name: "Cafe Latte", price: 4, category: "Drinks"};
 const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakfast"};
-
+const menu = {};
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1a: Make a function that builds objects🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Add to the function createMenuItems below so it will create objects following the same format found above for latte and breakfastBurrito (name, price, category).  
 The function should:
@@ -13,9 +13,16 @@ The function should:
   2. Create and return an object using the received values  
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
-}
+function createMenuItem(passedName, passedPrice, passedCategory){
+     let newItem = {
+     name: passedName,
+     price: passedPrice,
+     category: passedCategory,
+     };
+     return newItem;
+
+    }
+              
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Test your createMenuItems function by doing the following:
@@ -26,7 +33,12 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
 
-
+createMenuItem('Pepperoni Pizza', 5 , 'lunch');
+createMenuItem('Cheeseburger', 10 , 'lunch');
+createMenuItem('Croissant' , 4 , 'Breakfast');
+console.log(createMenuItem('Pepperoni Pizza', 5 , 'lunch'));
+console.log(createMenuItem('Cheeseburger', 10 , 'lunch'));
+console.log(createMenuItem('Croissant' , 4 , 'Breakfast'));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to the 
@@ -41,12 +53,34 @@ Using the burger object below do the following:
   For example: burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2
 */
 
-export const burger = {
-  name: "Burger", 
-  price: 18, 
-  category: "Lunch", 
-  /*Your code here*/
+
+
+  //export 
+  const burger = 
+{
+  
+     name: "Burger", 
+     price: 18, 
+     category: "Lunch", 
+     discount: function(discountType) 
+     {
+        let discountPrice = burger.price;
+
+      if (discountType.toLowerCase() == 'public') 
+     {
+        return discountPrice * 0.90;
+     } 
+      else 
+      {
+        return discountPrice * 0.75;
+      }
+     }
+    
 }
+  
+   burger.discount('teacher')
+   console.log(burger.discount('teacher'));
+
 
 
 
@@ -69,12 +103,20 @@ Using the reviews array above:
 
 
 
+console.log(reviews[5].feedback);
+
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Using the reviews array above do the following:
   1. Following the same format (name, rating, feedback), add a new fictitious review object to the reviews array
   2. log the whole array to the console, make sure the new review is inside of it   
 */
+
+
+
+reviews.push({name: 'Joey', rating: 5, feedback: 'was good'});
+console.log(reviews[8]);
 
 
 
@@ -85,6 +127,9 @@ Reyna's feedback is missing! Use what you know to do the following:
 */
 
 
+
+reviews[7].feedback = "this place is chill with really cool people, great for getting work done on weekdays"; 
+console.log(reviews[7].feedback);
 
 
 
@@ -98,12 +143,15 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+
+function getReviewByIndex(array, index) 
+{
+  return `${array[index].name} gave the restaurant a ${array[index].rating} and their feedback was "${array[index].feedback}'`;
 }
-
-
   
+console.log(getReviewByIndex(reviews, 4));
+
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Write a function to get information about the most recent (last) review called `getLastReview`
@@ -116,9 +164,15 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
-} 
+
+ function getLastReview(array) 
+{
+  
+  return `${array[array.length -1].name} gave the restaurant a ${array[array.length -1].rating} and their feedback was "${array[array.length - 1].feedback}'`;
+ 
+}
+
+console.log(getLastReview(reviews));
 
 
 
@@ -191,9 +245,10 @@ function foo(){
   return 'bar';
 }
 
-export default{
-  foo,
-  createMenuItem,
-  getReviewByIndex,
-  getLastReview,
-}
+//export 
+//default{
+ // foo,
+ // createMenuItem,
+  //getReviewByIndex,
+ // getLastReview,
+//}
