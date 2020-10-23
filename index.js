@@ -246,9 +246,9 @@ function foo(){
 }
 
 //export 
-default{
-  foo,
-  createMenuItem,
-  getReviewByIndex,
-  getLastReview,
-}
+//default{
+ // foo,
+ // createMenuItem,
+  //getReviewByIndex,
+ // getLastReview,
+//}
