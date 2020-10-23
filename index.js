@@ -55,7 +55,8 @@ Using the burger object below do the following:
 
 
 
-  export const burger = 
+  //export 
+  const burger = 
 {
   
      name: "Burger", 
